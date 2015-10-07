@@ -49,38 +49,28 @@ ds = "Double if possible, otherwise Stand"
  		"11,11"   => {"2" =>  p, "3" =>  p, "4" =>  p, "5" =>  p, "6" =>  p, "7" =>  p, "8" =>  p, "9" =>  p, "10" =>  p, "11" =>  p}
  		}
 
+def convert_face(card)
+  if card == "J" || card == "K" || card == "Q"
+    return "10"
+  elsif card == "A"
+  	return "11"
+  else 
+  	return card
+  end
+end
 
 puts "Please enter your first card:"
 my1 = gets.chomp.to_s
-if my1 == "J" || my1 == "K" || my1 == "Q"
-	my1 = "10"
-end
+my1 = convert_face(my1)
 
-if my1 == "A"
-	my1 = "11"
-end
 
 puts "Please enter your second card:"
 my2 = gets.chomp.to_s
-if my1 == "J" || my1 == "K" || my1 == "Q"
-	my1 = "10"
-end
-
-if my1 == "A"
-	my1 = "11"
-end
+my2 = convert_face(my2)
 
 puts "Please enter the dealer's card:"
 dealer = gets.chomp.to_s
-if dealer == "J" || dealer == "K" || dealer == "Q"
-	dealer = "10"
-end
-
-if dealer == "A"
-	dealer = "11"
-end
-
-my3 = my1 + my2
+dealer = convert_face(dealer)
 
 #Pair
 if my1 == my2 
