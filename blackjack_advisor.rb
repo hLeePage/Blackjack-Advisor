@@ -49,7 +49,7 @@ ds = "Double if possible, otherwise Stand"
  		"11,11"   => {"2" =>  p, "3" =>  p, "4" =>  p, "5" =>  p, "6" =>  p, "7" =>  p, "8" =>  p, "9" =>  p, "10" =>  p, "11" =>  p}
  		}
 
-def convert_face(card)
+def filter_card(card)
   if card == "J" || card == "K" || card == "Q"
     return "10"
   elsif card == "A"
@@ -61,16 +61,15 @@ end
 
 puts "Please enter your first card:"
 my1 = gets.chomp.to_s
-my1 = convert_face(my1)
-
+my1 = filter_card(my1)
 
 puts "Please enter your second card:"
 my2 = gets.chomp.to_s
-my2 = convert_face(my2)
+my2 = filter_card(my2)
 
 puts "Please enter the dealer's card:"
 dealer = gets.chomp.to_s
-dealer = convert_face(dealer)
+dealer = filter_card(dealer)
 
 #Pair
 if my1 == my2 
@@ -84,44 +83,4 @@ elsif my1 == "11" || my2 == "11"
 else 
 	puts hard["#{my1.to_i + my2.to_i}"]["#{dealer}"]
 end
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
